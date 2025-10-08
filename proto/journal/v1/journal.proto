@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+package journal.v1;
+
+option go_package = "github.com/parkernilson/micro-journal/gen/proto/journal/v1;journalv1";
+
+import "google/protobuf/timestamp.proto";
+
+// JournalEntry represents a single journal entry
+message JournalEntry {
+  string id = 1;
+  string title = 2;
+  string content = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
+}
+
+// CreateJournalEntryRequest is the request to create a new journal entry
+message CreateJournalEntryRequest {
+  string title = 1;
+  string content = 2;
+}
+
+// CreateJournalEntryResponse is the response after creating a journal entry
+message CreateJournalEntryResponse {
+  JournalEntry entry = 1;
+}
+
+// UpdateJournalEntryRequest is the request to update an existing journal entry
+message UpdateJournalEntryRequest {
+  string id = 1;
+  string title = 2;
+  string content = 3;
+}
+
+// UpdateJournalEntryResponse is the response after updating a journal entry
+message UpdateJournalEntryResponse {
+  JournalEntry entry = 1;
+}
+
+// DeleteJournalEntryRequest is the request to delete a journal entry
+message DeleteJournalEntryRequest {
+  string id = 1;
+}
+
+// DeleteJournalEntryResponse is the response after deleting a journal entry
+message DeleteJournalEntryResponse {
+  bool success = 1;
+}
+
+// ListJournalEntriesRequest is the request to get paginated journal entries
+message ListJournalEntriesRequest {
+  int32 page_size = 1;
+  string page_token = 2;
+}
+
+// ListJournalEntriesResponse is the response containing paginated journal entries
+message ListJournalEntriesResponse {
+  repeated JournalEntry entries = 1;
+  string next_page_token = 2;
+  int32 total_count = 3;
+}
+
+// JournalService provides operations for managing journal entries
+service JournalService {
+  // CreateJournalEntry creates a new journal entry
+  rpc CreateJournalEntry(CreateJournalEntryRequest) returns (CreateJournalEntryResponse);
+
+  // UpdateJournalEntry updates an existing journal entry
+  rpc UpdateJournalEntry(UpdateJournalEntryRequest) returns (UpdateJournalEntryResponse);
+
+  // DeleteJournalEntry deletes a journal entry
+  rpc DeleteJournalEntry(DeleteJournalEntryRequest) returns (DeleteJournalEntryResponse);
+
+  // ListJournalEntries returns paginated journal entries sorted by date descending
+  rpc ListJournalEntries(ListJournalEntriesRequest) returns (ListJournalEntriesResponse);
+}
