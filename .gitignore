@@ -1,0 +1,97 @@
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+
+# Go build artifacts
+/bin/
+/pkg/
+/vendor/
+
+# Go coverage
+*.coverprofile
+coverage.txt
+coverage.html
+
+# Protocol Buffers
+*.pb.go
+*_grpc.pb.go
+
+# Swift & Xcode
+## Build generated
+build/
+DerivedData/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+*.xcuserstate
+
+## Swift Package Manager
+.build/
+Packages/
+Package.pins
+Package.resolved
+*.xcodeproj
+.swiftpm/
+
+## CocoaPods
+Pods/
+*.xcworkspace
+!default.xcworkspace
+Podfile.lock
+
+## Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+## Swift generated files
+*.swiftdoc
+*.swiftmodule
+*.swiftsourceinfo
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment & Config
+**/.env
+**/.env.*
+!**/.env.example
+*.local
+config.local.*
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+tmp/
+temp/
+*.tmp
