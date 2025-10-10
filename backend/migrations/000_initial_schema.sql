@@ -1,6 +1,6 @@
 -- Create journal_entries table
 CREATE TABLE IF NOT EXISTS journal_entries (
-    id TEXT PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,
     content TEXT NOT NULL,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
